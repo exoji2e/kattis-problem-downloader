@@ -49,7 +49,7 @@ submissionsurl: https://<kattis>/submissions''')
 
 def parseArgs():
     parser = argparse.ArgumentParser()
-    parser.add_argument('config_file', help='path to your kattisrc config file')
+    parser.add_argument('kattisrc', help='path to your kattisrc config file')
     return parser.parse_args()
 
 
@@ -145,7 +145,7 @@ def parseProblems(html):
     return problems
 
 def main():
-    cfg = get_config(parseArgs().config_file)
+    cfg = get_config(parseArgs().kattisrc)
 
     login_reply = get_login_reply(cfg)
     problems = []
