@@ -122,7 +122,7 @@ def get_url(cfg, option, default):
         return 'https://%s/%s' % (cfg.get('kattis', 'hostname'), default)
 
 def get_problem_page_url(cfg, p_id):
-    return get_url(cfg, 'problem_page', 'problems') + f'?page={p_id}&show_solved=on&show_tried=off&show_untried=off'
+    return get_url(cfg, 'problem_page', 'problems') + f'?page={p_id}&f_solved=on&f_tried=off&f_untried=off&f_partial-score=off'
 
 def get_problem_page(cfg, p_id, cookies):
     page_url = get_problem_page_url(cfg, p_id)
@@ -149,7 +149,7 @@ def main():
 
     login_reply = get_login_reply(cfg)
     problems = []
-    p_id = 0
+    p_id = 1
     userName = cfg.get('user', 'username')
     while True:
         print(f'fetching page {p_id}')
